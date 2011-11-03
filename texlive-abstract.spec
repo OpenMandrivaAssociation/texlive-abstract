@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /macros/latex/contrib/abstract
+# catalog-date 2009-09-02 11:33:10 +0200
+# catalog-license lppl
+# catalog-version 1.2a
 Name:		texlive-abstract
 Version:	1.2a
 Release:	1
@@ -44,6 +50,7 @@ column abstract in a two column paper.
 #- source
 %doc %{_texmfdistdir}/source/latex/abstract/abstract.dtx
 %doc %{_texmfdistdir}/source/latex/abstract/abstract.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -54,3 +61,5 @@ column abstract in a two column paper.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
