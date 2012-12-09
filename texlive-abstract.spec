@@ -50,3 +50,18 @@ column abstract in a two column paper.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.2a-2
++ Revision: 749044
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.2a-1
++ Revision: 717784
+- texlive-abstract
+- texlive-abstract
+- texlive-abstract
+- texlive-abstract
+- texlive-abstract
+
