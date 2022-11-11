@@ -1,19 +1,13 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/abstract
-# catalog-date 2009-09-02 11:33:10 +0200
-# catalog-license lppl
-# catalog-version 1.2a
 Name:		texlive-abstract
-Version:	1.2a
-Release:	12
+Version:	15878
+Release:	1
 Summary:	Control the typesetting of the abstract environment
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/abstract
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/abstract.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/abstract.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/abstract.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/abstract.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/abstract.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/abstract.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -25,12 +19,12 @@ the abstract environment, and in particular provides for a one
 column abstract in a two column paper.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -43,25 +37,11 @@ column abstract in a two column paper.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -q -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.2a-2
-+ Revision: 749044
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.2a-1
-+ Revision: 717784
-- texlive-abstract
-- texlive-abstract
-- texlive-abstract
-- texlive-abstract
-- texlive-abstract
-
